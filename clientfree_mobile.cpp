@@ -18,9 +18,13 @@
 #include <QQmlApplicationEngine>
 
 // Application includes
+#include "clientfree_mobile.h"
 #include <aclientbackend.h>
 #include <alogger.h>
 #include <aproperties.h>
+
+// Namespace
+using namespace ARB;
 
 // Constants
 #define A_QML_CLIENT_MAIN "qrc:/ClientFree/Mobile/Main/Main.qml"
@@ -35,9 +39,15 @@ int main(int inCounter, char *inArguments[]) {
 	QGuiApplication oApplication(inCounter, inArguments);
 	QQmlApplicationEngine oEngine;
 
+	AProperties* oProperties = &AProperties::mInstance();
+	oProperties->mSetNameApplication(A_CONFIG_NAME_APPLICATION);
+	oProperties->mSetNameOrganisation(A_CONFIG_NAME_ORGANISATION);
+	oProperties->mSetNameDomain(A_CONFIG_NAME_DOMAIN);
+	oProperties->mInit();
+
 	AClientBackend* oBackend = new AClientBackend();
 	ALogger* oLogger = new ALogger();
-	AProperties* oProperties = new AProperties();
+
 
 	const QUrl oURL(QStringLiteral(A_QML_CLIENT_MAIN));
 	QObject::connect(
