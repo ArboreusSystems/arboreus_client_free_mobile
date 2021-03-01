@@ -18,10 +18,8 @@
 #include <QQmlApplicationEngine>
 
 // Application includes
-#include "clientfree_mobile.h"
+#include <clientfree_mobile.h>
 #include <aclientbackend.h>
-#include <alogger.h>
-#include <aproperties.h>
 
 // Namespace
 using namespace ARB;
@@ -45,9 +43,16 @@ int main(int inCounter, char *inArguments[]) {
 	oProperties->mSetNameDomain(A_CONFIG_NAME_DOMAIN);
 	oProperties->mInit();
 
-	AClientBackend* oBackend = new AClientBackend();
-	ALogger* oLogger = new ALogger();
+	ALogger* oLogger = &ALogger::mInstance();
+	oLogger->pProperties = oProperties;
 
+	AClientBackend* oBackend = &AClientBackend::mInstance();
+	oBackend->pGuiApplication = &oApplication;
+	oBackend->pEngine = &oEngine;
+	oBackend->pRootContext = oEngine.rootContext();
+	oBackend->pProperties = oProperties;
+	oBackend->pLogger = oLogger;
+	oBackend->mInit();
 
 	const QUrl oURL(QStringLiteral(A_QML_CLIENT_MAIN));
 	QObject::connect(

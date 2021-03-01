@@ -17,6 +17,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 
 // Application includes
+import "qrc:/ModulesFree/Logger/ALogger.js" as LOGGER;
 
 // Application
 ApplicationWindow {
@@ -35,5 +36,11 @@ ApplicationWindow {
 		text: oApplicationWindow.pText;
 		anchors.verticalCenter: parent.verticalCenter;
 		anchors.horizontalCenter: parent.horizontalCenter;
+	}
+
+	Component.onCompleted: {
+
+		LOGGER.mUserInfo("Test message from QML");
+		LOGGER.mQMLInfo("QML info message");
 	}
 }
