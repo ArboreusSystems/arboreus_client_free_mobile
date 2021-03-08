@@ -13,12 +13,12 @@ exists($$A_PRI_CONFIG) {
 	SOURCES += \
 		clientfree_mobile.cpp
 
+	HEADERS += \
+		clientfree_mobile.h
+
 } else { error(No config file $$A_PRI_CONFIG) }
 
-HEADERS += \
-	clientfree_mobile.h
 
-SOURCES +=
 
 
 
