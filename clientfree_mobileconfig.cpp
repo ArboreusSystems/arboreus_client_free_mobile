@@ -70,9 +70,11 @@ ClientFree_MobileConfig& ClientFree_MobileConfig::mInstance(void) {
 
 ASqlCipherProperties* ClientFree_MobileConfig::mGetDBProperties(void) {
 
+	QString oDBName = QString("log_") + QString::number(A_CURRENT_TIME) + ".arb";
+	QString oDBPath = pProperties->mGetPathLogs() + "/" + oDBName;
+
 	ASqlCipherProperties* oProperties = new ASqlCipherProperties();
-	oProperties->Name = "TestName";
-	oProperties->Path = "TestPath";
-	oProperties->Value = "TestValue";
+	oProperties->Name = oDBName;
+	oProperties->Path = oDBPath;
 	return oProperties;
 }

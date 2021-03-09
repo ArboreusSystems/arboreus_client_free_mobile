@@ -23,6 +23,7 @@
 #include <aproperties.h>
 #include <aclientbackend.h>
 #include <alogger.h>
+#include <auniversaldefinitions.h>
 
 // Constants and definitions
 
