@@ -19,6 +19,7 @@
 
 // Application includes
 #include <clientfree_mobile.h>
+#include <clientfree_mobileconfig.h>
 #include <aclientbackend.h>
 
 // Namespace
@@ -34,6 +35,8 @@ int main(int inCounter, char *inArguments[]) {
 	QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
 
+	qDebug() << "ThreadID Main:" << QThread::currentThreadId();
+
 	QGuiApplication oApplication(inCounter, inArguments);
 	QQmlApplicationEngine oEngine;
 
@@ -43,8 +46,12 @@ int main(int inCounter, char *inArguments[]) {
 	oProperties->mSetNameDomain(A_CONFIG_NAME_DOMAIN);
 	oProperties->mInit();
 
+	ClientFree_MobileConfig* oConfig = &ClientFree_MobileConfig::mInstance();
+	oConfig->pProperties = oProperties;
+
 	ALogger* oLogger = &ALogger::mInstance();
 	oLogger->pProperties = oProperties;
+	oLogger->pConfig = static_cast<ALoggerConfig*>(oConfig);
 
 	AClientBackend* oBackend = &AClientBackend::mInstance();
 	oBackend->pGuiApplication = &oApplication;

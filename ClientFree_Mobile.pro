@@ -18,6 +18,12 @@ exists($$A_PRI_CONFIG) {
 
 } else { error(No config file $$A_PRI_CONFIG) }
 
+HEADERS += \
+	clientfree_mobileconfig.h
+
+SOURCES += \
+	clientfree_mobileconfig.cpp
+
 
 
 
