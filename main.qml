@@ -7,7 +7,7 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 28/02/2021 at 12:25:02
+	\li @created 28/04/2021 at 18:18:07
 	\endlist
 */
 // ----------------------------------------------------------
@@ -17,12 +17,11 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 
 // Application includes
-import "qrc:/ModulesFree/Logger/ALogger.js" as LOGGER;
 
 // Application
 ApplicationWindow {
 
-	property string pText: qsTr("Client Free Mobile");
+	property string pText: qsTr("Hello world!");
 
 	id: oApplicationWindow;
 	width: 640;
@@ -36,11 +35,5 @@ ApplicationWindow {
 		text: oApplicationWindow.pText;
 		anchors.verticalCenter: parent.verticalCenter;
 		anchors.horizontalCenter: parent.horizontalCenter;
-	}
-
-	Component.onCompleted: {
-
-		LOGGER.mUserInfo("Test message from QML");
-		LOGGER.mQMLInfo("QML info message");
 	}
 }

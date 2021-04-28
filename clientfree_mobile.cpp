@@ -8,7 +8,7 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 28/02/2021 at 11:32:33
+	\li @created 28/04/2021 at 18:55:19
 	\endlist
 */
 // ----------------------------------------------------------
@@ -16,52 +16,36 @@
 // System includes
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QQmlContext>
 
 // Application includes
-#include <clientfree_mobile.h>
-#include <clientfree_mobileconfig.h>
 #include <aclientbackend.h>
+
+// Constants
+#define CLIENT_QML_MAIN "qrc:/ClentFree/Modules/QMLComponents/Main/ClientFree_Mobile.qml"
 
 // Namespace
 using namespace ARB;
 
-// Constants
-#define A_QML_CLIENT_MAIN "qrc:/ClientFree/Mobile/Main/Main.qml"
 
 // Qt Quick Application
-int main(int inCounter, char *inArguments[]) {
+int main(int inCounter, char* inArguments[]) {
 
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 	QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
 
-	qDebug() << "ThreadID Main:" << QThread::currentThreadId();
-
 	QGuiApplication oApplication(inCounter, inArguments);
 	QQmlApplicationEngine oEngine;
 
-	AProperties* oProperties = &AProperties::mInstance();
-	oProperties->mSetNameApplication(A_CONFIG_NAME_APPLICATION);
-	oProperties->mSetNameOrganisation(A_CONFIG_NAME_ORGANISATION);
-	oProperties->mSetNameDomain(A_CONFIG_NAME_DOMAIN);
-	oProperties->mInit();
-
-	ClientFree_MobileConfig* oConfig = &ClientFree_MobileConfig::mInstance();
-	oConfig->pProperties = oProperties;
-
-	ALogger* oLogger = &ALogger::mInstance();
-	oLogger->pProperties = oProperties;
-	oLogger->pConfig = static_cast<ALoggerConfig*>(oConfig);
-
 	AClientBackend* oBackend = &AClientBackend::mInstance();
-	oBackend->pGuiApplication = &oApplication;
 	oBackend->pEngine = &oEngine;
+	oBackend->pGuiApplication = &oApplication;
 	oBackend->pRootContext = oEngine.rootContext();
-	oBackend->pProperties = oProperties;
-	oBackend->pLogger = oLogger;
+
 	oBackend->mInit();
 
-	const QUrl oURL(QStringLiteral(A_QML_CLIENT_MAIN));
+	const QUrl oURL(QStringLiteral(CLIENT_QML_MAIN));
 	QObject::connect(
 		&oEngine, &QQmlApplicationEngine::objectCreated,
 		&oApplication, [oURL](QObject *obj, const QUrl &objUrl) {
