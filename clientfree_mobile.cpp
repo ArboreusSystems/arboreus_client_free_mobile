@@ -38,12 +38,10 @@ int main(int inCounter, char* inArguments[]) {
 	QGuiApplication oApplication(inCounter, inArguments);
 	QQmlApplicationEngine oEngine;
 
-	AClientBackend* oBackend = &AClientBackend::mInstance();
-	oBackend->pEngine = &oEngine;
-	oBackend->pGuiApplication = &oApplication;
-	oBackend->pRootContext = oEngine.rootContext();
+	qInstallMessageHandler(fLoggerMessageHandler);
 
-	oBackend->mInit();
+	AClientBackend* oBackend = &AClientBackend::mInstance();
+	oBackend->mInit(&oApplication,&oEngine,oEngine.rootContext());
 
 	const QUrl oURL(QStringLiteral(CLIENT_QML_MAIN));
 	QObject::connect(
