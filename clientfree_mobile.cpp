@@ -19,7 +19,7 @@
 #include <QQmlContext>
 
 // Application includes
-#include <aclientbackend.h>
+#include <abackend.h>
 
 // Constants
 #define CLIENT_QML_MAIN "qrc:/ClentFree/Modules/QMLComponents/Main/ClientFree_Mobile.qml"
@@ -40,7 +40,7 @@ int main(int inCounter, char* inArguments[]) {
 
 	qInstallMessageHandler(fLoggerMessageHandler);
 
-	AClientBackend* oBackend = &AClientBackend::mInstance();
+	ABackend* oBackend = &ABackend::mInstance();
 	oBackend->mInit(&oApplication,&oEngine,oEngine.rootContext());
 
 	const QUrl oURL(QStringLiteral(CLIENT_QML_MAIN));
