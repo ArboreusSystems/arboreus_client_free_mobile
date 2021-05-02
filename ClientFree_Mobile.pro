@@ -32,3 +32,7 @@ SOURCES += \
 	clientfree_mobile.cpp
 
 
+macos {
+
+	CONFIG += sdk_no_versioncheck
+}
