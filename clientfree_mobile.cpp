@@ -17,9 +17,11 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+#include <QEventLoop>
 
 // Application includes
 #include <abackend.h>
+#include <athreadobjectcontrollertemplate.h>
 
 // Constants
 #define CLIENT_QML_MAIN "qrc:/ClentFree/Modules/QMLComponents/Main/ClientFree_Mobile.qml"
@@ -40,10 +42,25 @@ int main(int inCounter, char* inArguments[]) {
 
 	qInstallMessageHandler(fLoggerMessageHandler);
 
-	ABackend* oBackend = &ABackend::mInstance();
-	oBackend->mInit(&oApplication,&oEngine,oEngine.rootContext());
-
+	AThreadObjectControllerTemplate oController;
+	QEventLoop oEventLoop;
 	const QUrl oURL(QStringLiteral(CLIENT_QML_MAIN));
+
+	ABackend* oBackend = &ABackend::mInstance();
+	QObject::connect(
+		&oController,&AThreadObjectControllerTemplate::sgRun,
+		[&oBackend,&oApplication,&oEngine](){
+			oBackend->mInit(&oApplication,&oEngine,oEngine.rootContext());
+		}
+	);
+	QObject::connect(
+		oBackend,&ABackend::sgInitiated,
+		&oEventLoop,&QEventLoop::quit
+	);
+
+	emit oController.sgRun();
+	oEventLoop.exec();
+
 	QObject::connect(
 		&oEngine, &QQmlApplicationEngine::objectCreated,
 		&oApplication, [oURL](QObject *obj, const QUrl &objUrl) {
