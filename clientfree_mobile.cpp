@@ -42,24 +42,29 @@ int main(int inCounter, char* inArguments[]) {
 
 	qInstallMessageHandler(fLoggerMessageHandler);
 
-	AThreadObjectControllerTemplate oController;
-	QEventLoop oEventLoop;
+	AThreadObjectControllerTemplate* oController = new AThreadObjectControllerTemplate();
+	QEventLoop* oEventLoop = new QEventLoop();
 	const QUrl oURL(QStringLiteral(CLIENT_QML_MAIN));
 
 	ABackend* oBackend = &ABackend::mInstance();
 	QObject::connect(
-		&oController,&AThreadObjectControllerTemplate::sgRun,
+		oController,&AThreadObjectControllerTemplate::sgRun,
 		[&oBackend,&oApplication,&oEngine](){
 			oBackend->mInit(&oApplication,&oEngine,oEngine.rootContext());
 		}
 	);
 	QObject::connect(
 		oBackend,&ABackend::sgInitiated,
-		&oEventLoop,&QEventLoop::quit
+		oEventLoop,&QEventLoop::quit
 	);
 
-	emit oController.sgRun();
-	oEventLoop.exec();
+	emit oController->sgRun();
+	oEventLoop->exec();
+
+	QObject::disconnect(oController,nullptr,nullptr,nullptr);
+	QObject::disconnect(oBackend,nullptr,oEventLoop,nullptr);
+	delete oController;
+	delete oEventLoop;
 
 	QObject::connect(
 		&oEngine, &QQmlApplicationEngine::objectCreated,
