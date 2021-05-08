@@ -36,3 +36,11 @@ macos {
 
 	CONFIG += sdk_no_versioncheck
 }
+
+ios {
+
+	CONFIG -= bitcode
+
+	QMAKE_IOS_DEPLOYMENT_TARGET = 10.0
+	QMAKE_APPLE_TARGETED_DEVICE_FAMILY = 1,2
+}
