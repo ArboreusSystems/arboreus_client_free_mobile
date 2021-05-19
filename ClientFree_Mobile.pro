@@ -29,6 +29,7 @@ exists($$A_PRI_CLIENT_FREE_MOBILE) {
 }
 
 SOURCES += \
+	aclientfreemobileconfig.cpp \
 	clientfree_mobile.cpp
 
 
@@ -44,3 +45,6 @@ ios {
 	QMAKE_IOS_DEPLOYMENT_TARGET = 10.0
 	QMAKE_APPLE_TARGETED_DEVICE_FAMILY = 1,2
 }
+
+HEADERS += \
+	aclientfreemobileconfig.h

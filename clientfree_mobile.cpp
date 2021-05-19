@@ -21,6 +21,7 @@
 
 // Application includes
 #include <abackend.h>
+#include <aclientfreemobileconfig.h>
 #include <athreadobjectcontrollertemplate.h>
 
 // Constants
@@ -42,6 +43,7 @@ int main(int inCounter, char* inArguments[]) {
 
 	qInstallMessageHandler(fLoggerMessageHandler);
 
+	AClientFreeMobileConfig* oConfig = new AClientFreeMobileConfig(&oEngine);
 	AThreadObjectControllerTemplate* oController = new AThreadObjectControllerTemplate();
 	QEventLoop* oEventLoop = new QEventLoop();
 	const QUrl oURL(QStringLiteral(CLIENT_QML_MAIN));
@@ -49,8 +51,12 @@ int main(int inCounter, char* inArguments[]) {
 	ABackend* oBackend = &ABackend::mInstance();
 	QObject::connect(
 		oController,&AThreadObjectControllerTemplate::sgRun,
-		[&oBackend,&oApplication,&oEngine](){
-			oBackend->mInit(&oApplication,&oEngine,oEngine.rootContext());
+		[&oBackend,&oApplication,&oEngine,&oConfig](){
+			oBackend->mInit(
+				&oApplication,&oEngine,
+				oEngine.rootContext(),
+				static_cast<QObject*>(oConfig)
+			);
 		}
 	);
 	QObject::connect(
