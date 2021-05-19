@@ -50,6 +50,11 @@ class AClientFreeMobileConfig:
 		explicit AClientFreeMobileConfig(QObject* parent = nullptr);
 		virtual ~AClientFreeMobileConfig(void);
 
+	private:
+
+		void mInit_AUIHandlerConfig_Colors(void);
+		void mInit_AUIHandlerConfig_Fonts(void);
+
 
 	// ----------------------------
 	// ABackendConfig
@@ -72,12 +77,17 @@ class AClientFreeMobileConfig:
 		int AUIHandlerConfig_UIHeight(void);
 		int AUIHandlerConfig_DesktopUIWidth(void);
 		int AUIHandlerConfig_DesktopUIHeight(void);
+
 		int AUIHandlerConfig_FontSizeHeader(void);
 		int AUIHandlerConfig_FontSizeRegular(void);
 		int AUIHandlerConfig_FontSizeTextInput(void);
+
 		int AUIHandlerConfig_BorderSize(void);
 		int AUIHandlerConfig_Radius(void);
 		int AUIHandlerConfig_ElementHeight(void);
+
+		QMap<QString,QString> AUIHandlerConfig_Colors(void);
+		QList<QString> AUIHandlerConfig_Fonts(void);
 
 	private:
 
@@ -85,12 +95,17 @@ class AClientFreeMobileConfig:
 		int pAUIHandlerConfig_UIHeight = 2560;
 		int pAUIHandlerConfig_DesktopUIWidth = 504;
 		int pAUIHandlerConfig_DesktopUIHeight = 896;
+
 		int pAUIHandlerConfig_FontSizeHeader = 18;
 		int pAUIHandlerConfig_FontSizeRegular = 16;
 		int pAUIHandlerConfig_FontSizeTextInput = 16;
+
 		int pAUIHandlerConfig_BorderSize = 1;
 		int pAUIHandlerConfig_Radius = 5;
 		int pAUIHandlerConfig_ElementHeight = 40;
+
+		QMap<QString,QString> pAUIHandlerConfig_Colors = {};
+		QList<QString> pAUIHandlerConfig_Fonts = {};
 
 
 	// ----------------------------

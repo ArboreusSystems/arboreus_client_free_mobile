@@ -29,6 +29,9 @@ using namespace ARB;
 
 AClientFreeMobileConfig::AClientFreeMobileConfig(QObject *parent) : QObject(parent) {
 
+	this->mInit_AUIHandlerConfig_Colors();
+	this->mInit_AUIHandlerConfig_Fonts();
+
 	_A_DEBUG << "AClientFreeMobileConfig created";
 }
 
@@ -43,6 +46,91 @@ AClientFreeMobileConfig::AClientFreeMobileConfig(QObject *parent) : QObject(pare
 AClientFreeMobileConfig::~AClientFreeMobileConfig(void) {
 
 	_A_DEBUG << "AClientFreeMobileConfig deleted";
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+void AClientFreeMobileConfig::mInit_AUIHandlerConfig_Colors(void) {
+
+	pAUIHandlerConfig_Colors.insert("BlackDarkest","#000000");
+	pAUIHandlerConfig_Colors.insert("BlackDark","#080808");
+	pAUIHandlerConfig_Colors.insert("Black","#161616");
+	pAUIHandlerConfig_Colors.insert("BlackLight","#242424");
+
+	pAUIHandlerConfig_Colors.insert("WhiteDark","#f4f4f4");
+	pAUIHandlerConfig_Colors.insert("White","#f8f8f8");
+	pAUIHandlerConfig_Colors.insert("WhiteLight","#ffffff");
+
+	pAUIHandlerConfig_Colors.insert("GreyDarkest","#666666");
+	pAUIHandlerConfig_Colors.insert("GreyDark","#BCBEC0");
+	pAUIHandlerConfig_Colors.insert("Grey","#D2D3D4");
+	pAUIHandlerConfig_Colors.insert("GreyLight","#E6E7E8");
+
+	pAUIHandlerConfig_Colors.insert("PurpleDark","#5e083c");
+	pAUIHandlerConfig_Colors.insert("Purple","#900a5b");
+	pAUIHandlerConfig_Colors.insert("PurpleLight","#5e083c");
+
+	pAUIHandlerConfig_Colors.insert("RedDark","#771021");
+	pAUIHandlerConfig_Colors.insert("Red","#B71F31");
+	pAUIHandlerConfig_Colors.insert("RedDark","#771021");
+
+	pAUIHandlerConfig_Colors.insert("GreenDark","#245618");
+	pAUIHandlerConfig_Colors.insert("Green","#3E6C34");
+	pAUIHandlerConfig_Colors.insert("GreenLight","#3F7F2F");
+
+	pAUIHandlerConfig_Colors.insert("BlueDark","#5cbbfb");
+	pAUIHandlerConfig_Colors.insert("Blue","#50a2d9");
+	pAUIHandlerConfig_Colors.insert("BlueLight","#186497");
+
+	pAUIHandlerConfig_Colors.insert("SaladDark","#539000");
+	pAUIHandlerConfig_Colors.insert("Salad","#66a511");
+	pAUIHandlerConfig_Colors.insert("SaladLight","#92da2f");
+
+	pAUIHandlerConfig_Colors.insert("FiolentDark","#402190");
+	pAUIHandlerConfig_Colors.insert("Fiolent","#5626d2");
+	pAUIHandlerConfig_Colors.insert("FiolentLight","#402190");
+
+	pAUIHandlerConfig_Colors.insert("OrangeDark","#fcaa4a");
+	pAUIHandlerConfig_Colors.insert("Orange","#f68c0f");
+	pAUIHandlerConfig_Colors.insert("OrangeLight","#402190");
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+void AClientFreeMobileConfig::mInit_AUIHandlerConfig_Fonts(void) {
+
+	pAUIHandlerConfig_Fonts = {
+		":/Resources/Fonts/FiraSansCondensed/FiraSansCondensed-Black.ttf",
+		":/Resources/Fonts/FiraSansCondensed/FiraSansCondensed-BlackItalic.ttf",
+		":/Resources/Fonts/FiraSansCondensed/FiraSansCondensed-Bold.ttf",
+		":/Resources/Fonts/FiraSansCondensed/FiraSansCondensed-BoldItalic.ttf",
+		":/Resources/Fonts/FiraSansCondensed/FiraSansCondensed-ExtraBold.ttf",
+		":/Resources/Fonts/FiraSansCondensed/FiraSansCondensed-ExtraBoldItalic.ttf",
+		":/Resources/Fonts/FiraSansCondensed/FiraSansCondensed-ExtraLight.ttf",
+		":/Resources/Fonts/FiraSansCondensed/FiraSansCondensed-ExtraLightItalic.ttf",
+		":/Resources/Fonts/FiraSansCondensed/FiraSansCondensed-Italic.ttf",
+		":/Resources/Fonts/FiraSansCondensed/FiraSansCondensed-Italic.ttf",
+		":/Resources/Fonts/FiraSansCondensed/FiraSansCondensed-LightItalic.ttf",
+		":/Resources/Fonts/FiraSansCondensed/FiraSansCondensed-Medium.ttf",
+		":/Resources/Fonts/FiraSansCondensed/FiraSansCondensed-MediumItalic.ttf",
+		":/Resources/Fonts/FiraSansCondensed/FiraSansCondensed-Regular.ttf",
+		":/Resources/Fonts/FiraSansCondensed/FiraSansCondensed-SemiBold.ttf",
+		":/Resources/Fonts/FiraSansCondensed/FiraSansCondensed-SemiBoldItalic.ttf",
+		":/Resources/Fonts/FiraSansCondensed/FiraSansCondensed-Thin.ttf",
+		":/Resources/Fonts/FiraSansCondensed/FiraSansCondensed-ThinItalic.ttf"
+	};
 }
 
 
@@ -185,6 +273,32 @@ int AClientFreeMobileConfig::AUIHandlerConfig_Radius(void) {
 int AClientFreeMobileConfig::AUIHandlerConfig_ElementHeight(void) {
 
 	return pAUIHandlerConfig_ElementHeight;
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+QMap<QString, QString> AClientFreeMobileConfig::AUIHandlerConfig_Colors(void) {
+
+	return pAUIHandlerConfig_Colors;
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+QList<QString> AClientFreeMobileConfig::AUIHandlerConfig_Fonts(void) {
+
+	return pAUIHandlerConfig_Fonts;
 }
 
 
