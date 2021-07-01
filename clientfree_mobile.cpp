@@ -39,7 +39,10 @@ int main(int inCounter, char* inArguments[]) {
 #endif
 
 	QGuiApplication oApplication(inCounter, inArguments);
+	QGuiApplication* oApplicationReference = &oApplication;
+
 	QQmlApplicationEngine oEngine;
+	QQmlApplicationEngine* oEngineReference = &oEngine;
 
 	qInstallMessageHandler(fLoggerMessageHandler);
 
@@ -51,10 +54,10 @@ int main(int inCounter, char* inArguments[]) {
 	ABackend* oBackend = &ABackend::mInstance();
 	QObject::connect(
 		oController,&AThreadObjectControllerTemplate::sgRun,
-		[&oBackend,&oApplication,&oEngine,&oConfig](){
+		oBackend,[oBackend,oApplicationReference,oEngineReference,oConfig](){
 			oBackend->mInit(
-				&oApplication,&oEngine,
-				oEngine.rootContext(),
+				oApplicationReference,oEngineReference,
+				oEngineReference->rootContext(),
 				static_cast<QObject*>(oConfig)
 			);
 		}
@@ -74,7 +77,7 @@ int main(int inCounter, char* inArguments[]) {
 
 	QObject::connect(
 		&oEngine, &QQmlApplicationEngine::objectCreated,
-		&oApplication, [oURL](QObject *obj, const QUrl &objUrl) {
+		&oApplication, [oURL](QObject* obj, const QUrl& objUrl) {
 			if (!obj && oURL == objUrl) {
 				QCoreApplication::exit(-1);
 			}
