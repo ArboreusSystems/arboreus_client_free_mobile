@@ -25,7 +25,7 @@
 #include <athreadobjectcontrollertemplate.h>
 
 // Constants
-#define CLIENT_QML_MAIN "qrc:/ClentFree/Modules/QMLComponents/Main/ClientFree_Mobile.qml"
+#define CLIENT_QML_MAIN "qrc:/ClientFreeMobile/QMLComponents/Main/ClientFree_Mobile.qml"
 
 // Namespace
 using namespace ARB;

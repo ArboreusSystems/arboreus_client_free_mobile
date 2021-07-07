@@ -146,6 +146,21 @@ const char *AClientFreeMobileConfig::ABackendConfig_ModuleName(void) {
 	return pABackendConfig_ModuleName;
 }
 
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+QString AClientFreeMobileConfig::AUIHandlerConfig_QMLImport(void) {
+
+	QString oOutput = ""
+		"import \"qrc:/ClientFreeMobile/QMLComponents/Content\";";
+	return oOutput;
+}
+
 // -----------
 /*!
 	\fn

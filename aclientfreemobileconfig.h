@@ -73,6 +73,8 @@ class AClientFreeMobileConfig:
 
 	public:
 
+		QString AUIHandlerConfig_QMLImport(void);
+
 		int AUIHandlerConfig_UIWidth(void);
 		int AUIHandlerConfig_UIHeight(void);
 		int AUIHandlerConfig_DesktopUIWidth(void);

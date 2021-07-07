@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/ClientFreeMobile/QMLComponents">
+        <file>Screens/AScreenMain.qml</file>
+        <file>Screens/AScreenMenu.qml</file>
+        <file>Content/AContent.qml</file>
+        <file>Templates/AContentTemplate.qml</file>
+        <file>Screens/AScreenTest.qml</file>
+        <file>Templates/AScreenTemplate.qml</file>
+        <file>Content/AContentWrapper.qml</file>
+        <file>Main/ClientFree_Mobile.qml</file>
+    </qresource>
+</RCC>
