@@ -22,6 +22,7 @@ import QtQuick 2.15
 Item {
 
 	id: oRootScreenTemplate;
+	anchors.fill: parent;
 
 	Connections {
 

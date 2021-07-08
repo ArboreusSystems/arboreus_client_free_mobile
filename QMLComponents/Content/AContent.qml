@@ -38,7 +38,7 @@ AContentTemplate {
 
 		Component.onCompleted: {
 
-			oStackView.push(oScreenTest);
+			oStackView.push(oScreenMain);
 		}
 
 		Component {id: oScreenTest; AScreenTest {}}
