@@ -17,6 +17,7 @@ import QtQuick 2.15
 
 // Application includes
 import "qrc:/ClientFreeMobile/QMLComponents/Templates";
+import "qrc:/ClentFree/Modules/QMLComponents/Headers";
 
 
 // Component
@@ -24,10 +25,11 @@ AScreenTemplate {
 
 	id: oRoot;
 
-	Text {
+	AHeaderScreenMain {
 
-		id: oTestText;
-		text: "Test";
-		anchors.centerIn: parent;
+		id: oHeader;
+		anchors.top: parent.top;
+		anchors.left: parent.left;
+		anchors.right: parent.right;
 	}
 }
