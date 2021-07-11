@@ -19,10 +19,10 @@ import QtQuick 2.15
 
 
 // Component
-Item {
+Rectangle {
 
 	id: oRootScreenTemplate;
-	anchors.fill: parent;
+	color: oApplicationWindow.pColorBackground;
 
 	Connections {
 

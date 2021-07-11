@@ -27,6 +27,7 @@ import "qrc:/ClentFree/Modules/QMLComponents/Buttons";
 AScreenTemplate {
 
 	id: oRoot;
+	objectName: "AScreenMain";
 
 	ListModel {
 

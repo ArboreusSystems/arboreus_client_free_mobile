@@ -24,6 +24,7 @@ import "qrc:/ClentFree/Modules/QMLComponents/Headers";
 AScreenTemplate {
 
 	id: oRoot;
+	objectName: "AScreenTest";
 
 	AHeaderScreenMain {
 
