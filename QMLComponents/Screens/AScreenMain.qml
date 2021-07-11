@@ -72,6 +72,33 @@ AScreenTemplate {
 				text: model.name;
 				anchors.centerIn: parent;
 			}
+
+			MouseArea {
+
+				id: oDelegateMouseArea;
+				anchors.fill: parent;
+				onClicked: {
+
+					console.log("index:",index);
+					oStoragesView.currentIndex = index;
+				}
+			}
+		}
+	}
+
+	Component {
+
+		id: highlight;
+
+		Rectangle {
+
+			width: oStoragesView.cellWidth;
+			height: oStoragesView.cellHeight;
+			color: "lightsteelblue";
+			x: oStoragesView.currentItem.x
+			y: oStoragesView.currentItem.y
+			Behavior on x { SpringAnimation { spring: 3; damping: 0.2 } }
+			Behavior on y { SpringAnimation { spring: 3; damping: 0.2 } }
 		}
 	}
 
@@ -96,6 +123,15 @@ AScreenTemplate {
 		anchors.left: parent.left;
 		anchors.right: parent.right;
 		anchors.bottom: parent.bottom;
+		highlightFollowsCurrentItem: true;
+		focus: true;
+		highlight: Rectangle {
+
+			id: oHighlight;
+			height: oStoragesView.cellHeight;
+			width: oStoragesView.cellWidth;
+			color: AColors.mGetString("Orange");
+		}
 
 		function mCellWidth() {
 
@@ -114,16 +150,9 @@ AScreenTemplate {
 	AButtonNew {
 
 		id: oButtonNew;
-		width: 50;
 		height: 50;
-		text: "+";
 		anchors.right: parent.right;
 		anchors.bottom: parent.bottom;
 		anchors.bottomMargin: oButtonNew.height * 0.25;
-
-		onClicked: {
-
-			console.log("Clicked button new");
-		}
 	}
 }
