@@ -62,6 +62,8 @@ AScreenTemplate {
 
 		Rectangle {
 
+			property string pStorage: model.name;
+
 			id: oDelegate;
 			height: oStoragesView.cellHeight;
 			width: oStoragesView.cellWidth;
@@ -70,7 +72,7 @@ AScreenTemplate {
 			Text {
 
 				id: oDelegateLabel;
-				text: model.name;
+				text: oDelegate.pStorage;
 				anchors.centerIn: parent;
 			}
 
@@ -82,6 +84,9 @@ AScreenTemplate {
 
 					console.log("index:",index);
 					oStoragesView.currentIndex = index;
+
+					oStackView.push(oScreenStorage);
+					oStackView.currentItem.mSetStorage(oDelegate.pStorage);
 				}
 			}
 		}
@@ -101,14 +106,6 @@ AScreenTemplate {
 			Behavior on x { SpringAnimation { spring: 3; damping: 0.2 } }
 			Behavior on y { SpringAnimation { spring: 3; damping: 0.2 } }
 		}
-	}
-
-	AHeaderScreenMain {
-
-		id: oHeader;
-		anchors.top: parent.top;
-		anchors.left: parent.left;
-		anchors.right: parent.right;
 	}
 
 	GridView {
@@ -148,9 +145,18 @@ AScreenTemplate {
 		}
 	}
 
+	AHeaderScreenMain {
+
+		id: oHeader;
+		anchors.top: parent.top;
+		anchors.left: parent.left;
+		anchors.right: parent.right;
+	}
+
 	AButtonNew {
 
 		id: oButtonNew;
+		objectName: "ButtonNewStorage";
 		height: 50;
 		anchors.right: parent.right;
 		anchors.bottom: parent.bottom;

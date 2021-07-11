@@ -8,5 +8,6 @@
         <file>Templates/AScreenTemplate.qml</file>
         <file>Content/AContentWrapper.qml</file>
         <file>Main/ClientFree_Mobile.qml</file>
+        <file>Screens/AScreenStorage.qml</file>
     </qresource>
 </RCC>

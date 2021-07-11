@@ -44,37 +44,49 @@ AContentTemplate {
 		Component {id: oScreenTest; AScreenTest {}}
 		Component {id: oScreenMain; AScreenMain {}}
 		Component {id: oScreenMenu; AScreenMenu {}}
+		Component {id: oScreenStorage; AScreenStorage {}}
 
 		pushEnter: Transition {
-		PropertyAnimation {
-				property: "opacity"
-				from: 0
-				to:1
-				duration: 200
+
+			PropertyAnimation {
+
+				property: "opacity";
+				from: 0;
+				to: 1;
+				duration: 200;
 			}
 		}
+
 		pushExit: Transition {
+
 			PropertyAnimation {
-				property: "opacity"
-				from: 1
-				to:0
-				duration: 200
+
+				property: "opacity";
+				from: 1;
+				to: 0;
+				duration: 200;
 			}
 		}
+
 		popEnter: Transition {
+
 			PropertyAnimation {
-				property: "opacity"
-				from: 0
-				to:1
-				duration: 200
+
+				property: "opacity";
+				from: 0;
+				to: 1;
+				duration: 200;
 			}
 		}
+
 		popExit: Transition {
+
 			PropertyAnimation {
-				property: "opacity"
-				from: 1
-				to:0
-				duration: 200
+
+				property: "opacity";
+				from: 1;
+				to: 0;
+				duration: 200;
 			}
 		}
 	}

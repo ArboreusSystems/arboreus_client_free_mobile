@@ -7,7 +7,7 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 07/07/2021 at 18:16:23
+	\li @created 11/07/2021 at 16:25:57
 	\endlist
 */
 // ----------------------------------------------------------
@@ -21,13 +21,14 @@ import QtQuick.Controls 2.15
 // Application paths
 import "qrc:/ClientFreeMobile/QMLComponents/Templates";
 import "qrc:/ClentFree/Modules/QMLComponents/Headers";
+import "qrc:/ClentFree/Modules/QMLComponents/Buttons";
 
 
 // Component
 AScreenTemplate {
 
 	id: oRoot;
-	objectName: "AScreenMenu";
+	objectName: "AScreenStorage";
 
 	ScrollView {
 
@@ -45,21 +46,33 @@ AScreenTemplate {
 			width: parent.width;
 			spacing: 5;
 
-			Rectangle {	width: parent.width; height: 50; color: AColors.mGetString("Green");}
-			Rectangle {	width: parent.width; height: 50; color: AColors.mGetString("Green");}
-			Rectangle {	width: parent.width; height: 50; color: AColors.mGetString("Green");}
-			Rectangle {	width: parent.width; height: 50; color: AColors.mGetString("Green");}
-			Rectangle {	width: parent.width; height: 50; color: AColors.mGetString("Green");}
-			Rectangle {	width: parent.width; height: 50; color: AColors.mGetString("Green");}
-			Rectangle {	width: parent.width; height: 50; color: AColors.mGetString("Green");}
+			Rectangle {	width: parent.width; height: 50; color: AColors.mGetString("Purple");}
+			Rectangle {	width: parent.width; height: 50; color: AColors.mGetString("Purple");}
+			Rectangle {	width: parent.width; height: 50; color: AColors.mGetString("Purple");}
+			Rectangle {	width: parent.width; height: 50; color: AColors.mGetString("Purple");}
 		}
 	}
 
-	AHeaderScreenMenu {
+	AHeaderScreenStorage {
 
 		id: oHeader;
 		anchors.top: parent.top;
 		anchors.left: parent.left;
 		anchors.right: parent.right;
+	}
+
+	AButtonNew {
+
+		id: oButtonNew;
+		objectName: "ButtonNewData";
+		height: 50;
+		anchors.right: parent.right;
+		anchors.bottom: parent.bottom;
+		anchors.bottomMargin: oButtonNew.height * 0.25;
+	}
+
+	function mSetStorage(inStorage) {
+
+		oHeader.pLabelText = inStorage;
 	}
 }
