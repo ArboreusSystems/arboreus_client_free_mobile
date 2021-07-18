@@ -48,6 +48,7 @@ AScreenTemplate {
 		}
 
 		Component {id: oMenuViewMain; AMenuViewMain {}}
+		Component {id: oMenuViewSettings; AMenuViewSettings {}}
 	}
 
 	AHeaderScreenMenu {
