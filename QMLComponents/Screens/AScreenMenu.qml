@@ -21,6 +21,7 @@ import QtQuick.Controls 2.15
 // Application paths
 import "qrc:/ClientFreeMobile/QMLComponents/Templates";
 import "qrc:/ClentFree/Modules/QMLComponents/Headers";
+import "qrc:/ClentFree/Modules/QMLComponents/Menu";
 
 
 // Component
@@ -31,33 +32,27 @@ AScreenTemplate {
 
 	ScrollView {
 
-		id: oScrollView;
+		id: oApplicationMenu;
 		width: parent.width;
 		clip: true;
-		anchors.top: oHeader.bottom;
+		anchors.top: oHeaderScreenMenu.bottom;
 		anchors.bottom: oRoot.bottom;
 		anchors.left: oRoot.left;
 		anchors.right: oRoot.right
 
-		Column {
+		Loader {
 
-			id: oMenu;
-			width: parent.width;
-			spacing: 5;
-
-			Rectangle {	width: parent.width; height: 50; color: AColors.mGetString("Green");}
-			Rectangle {	width: parent.width; height: 50; color: AColors.mGetString("Green");}
-			Rectangle {	width: parent.width; height: 50; color: AColors.mGetString("Green");}
-			Rectangle {	width: parent.width; height: 50; color: AColors.mGetString("Green");}
-			Rectangle {	width: parent.width; height: 50; color: AColors.mGetString("Green");}
-			Rectangle {	width: parent.width; height: 50; color: AColors.mGetString("Green");}
-			Rectangle {	width: parent.width; height: 50; color: AColors.mGetString("Green");}
+			id: oApplicationMenuLoader;
+			anchors.fill: parent;
+			sourceComponent: oMenuViewMain;
 		}
+
+		Component {id: oMenuViewMain; AMenuViewMain {}}
 	}
 
 	AHeaderScreenMenu {
 
-		id: oHeader;
+		id: oHeaderScreenMenu;
 		anchors.top: parent.top;
 		anchors.left: parent.left;
 		anchors.right: parent.right;

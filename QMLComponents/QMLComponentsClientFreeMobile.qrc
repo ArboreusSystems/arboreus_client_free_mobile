@@ -9,5 +9,6 @@
         <file>Content/AContentWrapper.qml</file>
         <file>Main/ClientFree_Mobile.qml</file>
         <file>Screens/AScreenStorage.qml</file>
+        <file>Menu/AMenuViewMain.qml</file>
     </qresource>
 </RCC>
