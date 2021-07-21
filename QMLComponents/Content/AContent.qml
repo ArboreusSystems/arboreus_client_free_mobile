@@ -38,13 +38,14 @@ AContentTemplate {
 
 		Component.onCompleted: {
 
-			oStackView.push(oScreenMain);
+			oStackView.push(oScreenNewStorage);
 		}
 
 		Component {id: oScreenTest; AScreenTest {}}
 		Component {id: oScreenMain; AScreenMain {}}
 		Component {id: oScreenMenu; AScreenMenu {}}
 		Component {id: oScreenStorage; AScreenStorage {}}
+		Component {id: oScreenNewStorage; AScreenNewStorage {}}
 
 		pushEnter: Transition {
 

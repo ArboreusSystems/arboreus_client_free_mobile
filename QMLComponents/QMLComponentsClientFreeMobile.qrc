@@ -10,5 +10,6 @@
         <file>Main/ClientFree_Mobile.qml</file>
         <file>Screens/AScreenStorage.qml</file>
         <file>Menu/AMenuViewMain.qml</file>
+        <file>Screens/AScreenNewStorage.qml</file>
     </qresource>
 </RCC>

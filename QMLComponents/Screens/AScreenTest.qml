@@ -18,6 +18,7 @@ import QtQuick 2.15
 // Application includes
 import "qrc:/ClientFreeMobile/QMLComponents/Templates";
 import "qrc:/ClentFree/Modules/QMLComponents/Headers";
+import "qrc:/ClentFree/Modules/QMLComponents/Inputs";
 
 
 // Component
@@ -26,11 +27,11 @@ AScreenTemplate {
 	id: oRoot;
 	objectName: "AScreenTest";
 
-	AHeaderScreenMain {
+	AInputText {
 
-		id: oHeader;
-		anchors.top: parent.top;
-		anchors.left: parent.left;
-		anchors.right: parent.right;
+		id: oTextInput;
+		width: parent.width * 0.8;
+		height: 40;
+		anchors.centerIn: parent;
 	}
 }
