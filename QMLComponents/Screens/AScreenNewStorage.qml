@@ -21,8 +21,6 @@ import QtQuick.Controls 2.15
 // Application paths
 import "qrc:/ClientFreeMobile/QMLComponents/Templates";
 import "qrc:/ClentFree/Modules/QMLComponents/Headers";
-import "qrc:/ClentFree/Modules/QMLComponents/Menu";
-import "qrc:/ClentFree/Modules/QMLComponents/Delegates";
 import "qrc:/ClentFree/Modules/QMLComponents/Views/NewStorage";
 
 
