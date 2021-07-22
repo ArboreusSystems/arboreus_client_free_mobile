@@ -21,7 +21,7 @@ import QtQuick.Controls 2.15
 // Application paths
 import "qrc:/ClientFreeMobile/QMLComponents/Templates";
 import "qrc:/ClentFree/Modules/QMLComponents/Headers";
-import "qrc:/ClentFree/Modules/QMLComponents/Buttons";
+import "qrc:/ClentFree/Modules/QMLComponents/Buttons/Screen";
 
 
 // Component
@@ -61,7 +61,7 @@ AScreenTemplate {
 		anchors.right: parent.right;
 	}
 
-	AButtonNew {
+	AButtonScreenNew {
 
 		id: oButtonNew;
 		objectName: "ButtonNewData";

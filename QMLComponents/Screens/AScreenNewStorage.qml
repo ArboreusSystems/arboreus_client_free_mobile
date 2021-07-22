@@ -15,6 +15,7 @@
 // System includes
 import QtQuick 2.15
 import QtQuick.Controls 2.15
+import QtQuick.Layouts 1.15
 
 // Application includes
 
@@ -22,6 +23,7 @@ import QtQuick.Controls 2.15
 import "qrc:/ClientFreeMobile/QMLComponents/Templates";
 import "qrc:/ClentFree/Modules/QMLComponents/Headers";
 import "qrc:/ClentFree/Modules/QMLComponents/Views/NewStorage";
+import "qrc:/ClentFree/Modules/QMLComponents/Buttons/Screen";
 
 
 // Component
@@ -30,19 +32,55 @@ AScreenTemplate {
 	id: oRoot;
 	objectName: "AScreenNewStorage";
 
+	RowLayout {
+
+		id: oNewStorageMenu;
+		width: parent.width;
+		height: 50;
+		anchors.top: oHeaderScreenNewStorage.bottom;
+		anchors.left: oRoot.left;
+		anchors.right: oRoot.right;
+
+		Button {
+
+			id: oButtonProperties;
+			text: "Properties";
+			Layout.fillWidth: true;
+			Layout.fillHeight: true;
+			onClicked: {
+
+				console.log("Clicked oButtonProperties");
+				oLoaderScreenNewStorage.sourceComponent = oNewStoragePropeties;
+			}
+		}
+
+		Button {
+
+			id: oButtonModel;
+			text: "Model";
+			Layout.fillWidth: true;
+			Layout.fillHeight: true;
+			onClicked: {
+
+				console.log("Clicked oButtonModel");
+				oLoaderScreenNewStorage.sourceComponent = oNewStorageModel;
+			}
+		}
+	}
+
 	ScrollView {
 
 		id: oContentWrapper;
 		clip: true;
 		width: parent.width;
-		anchors.top: oHeaderScreenNewStorage.bottom;
+		anchors.top: oNewStorageMenu.bottom;
 		anchors.bottom: oRoot.bottom;
 		anchors.left: oRoot.left;
 		anchors.right: oRoot.right;
 
 		Component.onCompleted: {
 
-			oLoaderScreenNewStorage.sourceComponent = oNewStorageModel;
+			oLoaderScreenNewStorage.sourceComponent = oNewStoragePropeties;
 		}
 
 		Loader {
@@ -60,6 +98,21 @@ AScreenTemplate {
 		anchors.top: parent.top;
 		anchors.left: parent.left;
 		anchors.right: parent.right;
+	}
+
+	AButtonScreenNew {
+
+		id: oButtonNew;
+		objectName: "ButtonCreateNewStorage";
+		height: 50;
+		anchors.right: parent.right;
+		anchors.bottom: parent.bottom;
+		anchors.bottomMargin: oButtonNew.height * 0.25;
+
+		onClicked: {
+
+			oStackView.pop();
+		}
 	}
 
 	function mCreateModelElement(inType) {

@@ -20,7 +20,7 @@ import QtQuick 2.15
 // Application paths
 import "qrc:/ClientFreeMobile/QMLComponents/Templates";
 import "qrc:/ClentFree/Modules/QMLComponents/Headers";
-import "qrc:/ClentFree/Modules/QMLComponents/Buttons";
+import "qrc:/ClentFree/Modules/QMLComponents/Buttons/Screen";
 
 
 // Component
@@ -153,7 +153,7 @@ AScreenTemplate {
 		anchors.right: parent.right;
 	}
 
-	AButtonNew {
+	AButtonScreenNew {
 
 		id: oButtonNew;
 		objectName: "ButtonNewStorage";
@@ -161,5 +161,10 @@ AScreenTemplate {
 		anchors.right: parent.right;
 		anchors.bottom: parent.bottom;
 		anchors.bottomMargin: oButtonNew.height * 0.25;
+
+		onClicked: {
+
+			oStackView.push(oScreenNewStorage);
+		}
 	}
 }
