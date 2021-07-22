@@ -11,5 +11,6 @@
         <file>Screens/AScreenStorage.qml</file>
         <file>Menu/AMenuViewMain.qml</file>
         <file>Screens/AScreenNewStorage.qml</file>
+        <file>Screens/AScreenNewRecord.qml</file>
     </qresource>
 </RCC>

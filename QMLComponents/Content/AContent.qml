@@ -46,6 +46,7 @@ AContentTemplate {
 		Component {id: oScreenMenu; AScreenMenu {}}
 		Component {id: oScreenStorage; AScreenStorage {}}
 		Component {id: oScreenNewStorage; AScreenNewStorage {}}
+		Component {id: oScreenNewRecord; AScreenNewRecord {}}
 
 		pushEnter: Transition {
 
