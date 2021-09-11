@@ -45,8 +45,11 @@ android {
 
 }
 
+PRECOMPILED_HEADER = aclientfreemobilepch.h
+
 HEADERS += \
-	aclientfreemobileconfig.h
+	aclientfreemobileconfig.h \
+	aclientfreemobilepch.h
 
 SOURCES += \
 	aclientfreemobileconfig.cpp \

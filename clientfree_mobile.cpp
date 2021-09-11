@@ -14,10 +14,9 @@
 // ----------------------------------------------------------
 
 // System includes
-#include <QGuiApplication>
-#include <QQmlApplicationEngine>
-#include <QQmlContext>
-#include <QEventLoop>
+
+// Precompiled includes
+#include <aclientfreemobilepch.h>
 
 // Application includes
 #include <abackend.h>

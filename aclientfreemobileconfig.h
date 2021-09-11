@@ -17,7 +17,9 @@
 #define ACLIENTFREEMOBILECONFIG_H
 
 // System includes
-#include <QObject>
+
+// Precompiled includes
+#include <aclientfreemobilepch.h>
 
 // Application includes
 #include <aloggerglobal.h>
